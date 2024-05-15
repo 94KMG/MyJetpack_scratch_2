@@ -1,0 +1,86 @@
+// MBTI 성격 유형 클래스
+open class Mbti() {
+    var extroverted: String?= "아직 잘 모름"
+    var introverted: String? = "아직 잘 모름"
+    var sensing: String? = "아직 잘 모름"
+    var intuitive: String? = "아직 잘 모름"
+    var thinking: String? = "아직 잘 모름"
+    var feeling: String? = "아직 잘 모름"
+    var judging: String? = "아직 잘 모름"
+    var perceiving: String? = "아직 잘 모름"
+    open fun myMbti() {
+        println("MBTI 유형: ")
+
+    }
+
+
+    fun mbtiInfo1()
+    {
+        println("외향(E): $extroverted")
+        println("내향(I): $introverted")
+        println("감각(S): $sensing")
+        println("직관(N): $intuitive")
+        println("사고(T): $thinking")
+        println("감정(F): $feeling")
+        println("판단(J): $judging")
+        println("인식(P): $perceiving")
+    }
+
+    open fun mbtiInfo2(
+        extroverted: String,
+        introverted: String,
+        sensing: String,
+        intuitive: String,
+        thinking: String,
+        feeling: String,
+        judging: String,
+        perceiving: String
+    ) {
+        this.extroverted = extroverted
+        this.introverted = introverted
+        this.sensing = sensing
+        this.intuitive = intuitive
+        this.thinking = thinking
+        this.feeling = feeling
+        this.judging = judging
+        this.perceiving = perceiving
+
+        println("외향(E): $extroverted")
+        println("내향(I): $introverted")
+        println("감각(S): $sensing")
+        println("직관(N): $intuitive")
+        println("사고(T): $thinking")
+        println("감정(F): $feeling")
+        println("판단(J): $judging")
+        println("인식(P): $perceiving")
+    }
+}
+
+// 각 MBTI 성격 유형 클래스
+class ISTJ(typeOfMbti: String) : Mbti() {
+    val mbtiType = typeOfMbti
+    override fun myMbti() {
+        super.myMbti()
+        println("MBTI 유형: $mbtiType")
+    }
+
+}
+val mbti = Mbti()
+mbti.myMbti()
+mbti.mbtiInfo1()
+val istj = ISTJ("ISTJ")
+istj.myMbti()
+istj.mbtiInfo2(
+    "",
+    "내향적",
+    "감각적",
+    "",
+    "사고적",
+    "",
+    "인식적",
+    "")
+
+
+
+
+
