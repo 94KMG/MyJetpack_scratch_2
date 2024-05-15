@@ -1,0 +1,87 @@
+// MBTI 성격 유형 enum
+enum class MbtiType {
+    ISTJ,
+    ISFJ,
+    INFJ,
+    INTJ,
+    ISTP,
+    ISFP,
+    INFP,
+    INTP,
+    ESTP,
+    ESFP,
+    ENFP,
+    ENTP,
+    ESTJ,
+    ESFJ,
+    ENFJ,
+    ENTJ
+}
+
+open class MbtiPersonality {
+    var extroverted: String? = null
+    var introverted: String? = null
+    var sensing: String? = null
+    var intuitive: String? = null
+    var thinking: String? = null
+    var feeling: String? = null
+    var judging: String? = null
+    var perceiving: String? = null
+
+    open fun printMbti() {
+        println("MBTI 유형: ")
+    }
+
+    fun printPersonality(
+        mbtiType: String = "",
+        extroverted: String? = null,
+        introverted: String? = null,
+        sensing: String? = null,
+        intuitive: String? = null,
+        thinking: String? = null,
+        feeling: String? = null,
+        judging: String? = null,
+        perceiving: String? = null
+    ) {
+        if (MbtiType.values().none() {it.name == mbtiType}){
+            throw IllegalArgumentException("잘못된 MBTI 유형입니다: $mbtiType")
+        }
+        if (extroverted != null) this.extroverted = extroverted
+        if (introverted != null) this.introverted = introverted
+        if (sensing != null) this.sensing = sensing
+        if (intuitive != null) this.intuitive = intuitive
+        if (thinking != null) this.thinking = thinking
+        if (feeling != null) this.feeling = feeling
+        if (judging != null) this.judging = judging
+        if (perceiving != null) this.perceiving = perceiving
+
+        println("MBTI 유형: $mbtiType")
+        println("외향(E): $extroverted")
+        println("내향(I): $introverted")
+        println("감각(S): $sensing")
+        println("직관(N): $intuitive")
+        println("사고(T): $thinking")
+        println("감정(F): $feeling")
+        println("판단(J): $judging")
+        println("인식(P): $perceiving")
+    }
+}
+
+// 각 MBTI 성격 유형 클래스
+class IstjPersonality(typeOfPersonality: String) : MbtiPersonality() {
+    val personalityType = typeOfPersonality
+    override fun printMbti() {
+        super.printMbti()
+        println("MBTI 유형: $personalityType")
+    }
+}
+
+val istjPersonality = IstjPersonality("ISTJ")
+istjPersonality.printMbti()
+istjPersonality.printPersonality(
+    mbtiType = "ISTJ",
+    introverted = "내향적",
+    sensing = "감각적",
+    thinking = "사고적",
+    judging = "인식적"
+)
